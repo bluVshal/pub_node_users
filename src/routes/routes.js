@@ -5,8 +5,12 @@ const userGetControllers = require('../controllers/getControllers');
 /* GET users. */
 router.get('/', async function(req, res, next) {
   try {
-    console.log(req.query)
-    res.json(await userGetControllers.getUsers());
+    if(!req.query.hasOwnProperty('uname')){
+      res.json(await userGetControllers.getUsers());
+    }
+    else{
+      res.json(await userGetControllers.getUsersByParams(req.query));
+    }
   } catch (err) {
     console.error(`Error while getting users `, err.message);
     next(err);

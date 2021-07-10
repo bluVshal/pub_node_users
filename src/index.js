@@ -12,7 +12,7 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-  res.json({'message': 'ok'});
+  res.json({'message': 'Connected'});
 })
 
 app.use('/users', usersRouter);
@@ -28,5 +28,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log('Example app listening at http://localhost:'+port)
 });
