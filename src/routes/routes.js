@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userGetControllers = require('../controllers/getControllers');
+const userPostControllers = require('../controllers/postControllers');
 
 /* GET users. */
 router.get('/', async function(req, res, next) {
@@ -23,6 +24,17 @@ router.get('/:userId', async function(req, res, next) {
     res.json(await userGetControllers.getUsersById(req.params.userId));
   } catch (err) {
     console.error(`Error while getting users by id `, err.message);
+    next(err);
+  }
+});
+
+
+/* POST new User*/
+router.post('/', async function(req, res, next) {
+  try {
+    res.json(await userPostControllers.addNewUser(req.body));
+  } catch (err) {
+    console.error(`Error while adding a new user `, err.message);
     next(err);
   }
 });
