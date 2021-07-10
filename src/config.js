@@ -5,8 +5,7 @@ const config = {
     host: env.DB_HOST || 'localhost',
     user: env.DB_USER || 'root',
     password: env.DB_PASSWORD || 'jq88esfx',
-    database: env.DB_NAME || 'sys',
-    connectionLimit: 10
+    database: env.DB_NAME || 'sys'
   },
   listPerPage: env.LIST_PER_PAGE || 10,
 };
